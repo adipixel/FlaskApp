@@ -26,7 +26,7 @@ APPLICATION_NAME = "Catalog Application"
 
 # Connect to Database and create database session
 #engine = create_engine('sqlite:///catalog.db')
-engine = create_engine('postgresql://catalog:catalog@13.59.55.238/catalogdb')
+engine = create_engine('postgresql://catalog:catalog@localhost:5432/catalogdb')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -458,4 +458,4 @@ def categoryInfoJSON(category_name):
 if __name__ == '__main__':
     # app.secret_key = 'fksHnQeC90azPHPO7KZ5yX81'
     app.debug = True
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
