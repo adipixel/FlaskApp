@@ -20,7 +20,7 @@ app = Flask(__name__)
 app.secret_key = 'fksHnQeC90azPHPO7KZ5yX81'
 
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r')
+    open('/var/www/FlaskApp/FlaskApp/client_secrets.json', 'r')
     .read())['web']['client_id']
 APPLICATION_NAME = "Catalog Application"
 
@@ -55,7 +55,7 @@ def gconnect():
 
     try:
         # Upgrading the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/var/www/FlaskApp/FlaskApp/client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
