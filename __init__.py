@@ -20,7 +20,7 @@ app = Flask(__name__)
 app.secret_key = 'fksHnQeC90azPHPO7KZ5yX81'
 
 CLIENT_ID = json.loads(
-    open('/vagrant/listing-project/client_secrets.json', 'r')
+    open('client_secrets.json', 'r')
     .read())['web']['client_id']
 APPLICATION_NAME = "Catalog Application"
 
